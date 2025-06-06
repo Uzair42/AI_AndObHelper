@@ -1,9 +1,10 @@
 package com.example.doctorvoice
 
 import android.content.Intent
-import com.example.doctorvoice.BuildConfig
+
 
 import android.net.Uri
+
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.Voice
