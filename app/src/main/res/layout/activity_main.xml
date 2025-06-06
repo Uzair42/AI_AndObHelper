@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#2C2C2C"> <EditText
+    android:id="@+id/promptInput"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Enter your prompt here..."
+    android:textColorHint="#AAAAAA"
+    android:textColor="#FFFFFF"
+    android:padding="12dp"
+    android:background="@drawable/rounded_edittext_bg"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/voiceInputButton"
+    app:layout_constraintHorizontal_weight="1"
+    android:layout_marginEnd="8dp"/>
+
+    <Button
+        android:id="@+id/voiceInputButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎤"
+        android:textSize="24sp"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintTop_toTopOf="@+id/promptInput"
+        app:layout_constraintBottom_toBottomOf="@+id/promptInput"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/image_buttons_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/promptInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/selectImageButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select Image"
+            android:backgroundTint="#03DAC5"
+            android:textColor="#2C2C2C"
+            app:cornerRadius="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/cameraButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📷 Take Photo"
+            android:backgroundTint="#03DAC5"
+            android:textColor="#2C2C2C"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imagePreview"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginVertical="16dp"
+        android:scaleType="centerCrop"
+        android:background="#444444"
+        android:src="@drawable/image_placeholder" app:layout_constraintTop_toBottomOf="@+id/image_buttons_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="H,16:9" /> <Button
+        android:id="@+id/sendButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Send Request"
+        android:backgroundTint="#BB86FC"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imagePreview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        app:layout_constraintTop_toBottomOf="@+id/sendButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/audio_controls_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Spinner
+            android:id="@+id/languageSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/language_array"
+            android:backgroundTint="#FFFFFF"
+            android:popupBackground="#444444"
+
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/speakButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔊 Speak"
+            android:backgroundTint="#BB86FC"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="8dp"
+            android:visibility="gone" /> </LinearLayout>
+
+    <Spinner
+        android:id="@+id/voiceSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:popupBackground="#444444"
+
+        app:layout_constraintTop_toBottomOf="@+id/audio_controls_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/translateSpeakButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="🔁 Translate and Speak (Urdu)"
+        android:backgroundTint="#BB86FC"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/voiceSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ScrollView
+        android:id="@+id/english_scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_textview_bg"
+        android:padding="8dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/translateSpeakButton"
+        app:layout_constraintBottom_toTopOf="@+id/urdu_scroll_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:id="@+id/responseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#E0E0E0"
+            android:text="Response will appear here in English..." />
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/urdu_scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_textview_bg"
+        android:padding="8dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/english_scroll_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:id="@+id/urduTranslationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="یہاں اردو ترجمہ ظاہر ہوگا"
+            android:textAlignment="viewStart" android:textSize="16sp"
+            android:textColor="#90EE90" /> </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

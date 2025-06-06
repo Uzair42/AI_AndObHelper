@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DoctorVoice</string>
+    <string-array name="language_array">
+        <item>English</item>
+        <item>Urdu</item>
+    </string-array>
+
+</resources>
