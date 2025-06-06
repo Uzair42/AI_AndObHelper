@@ -289,7 +289,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun sendToGroq(prompt: String, base64Image: String) {
-        val apiKey =GROQ_API_KEY
+        val apiKey ="GROQ_API_KEY"
 
 
         val url = "https://api.groq.com/openai/v1/chat/completions"
