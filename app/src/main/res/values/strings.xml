@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DoctorVoice</string>
+    <string name="app_name">EchoLens</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Urdu</item>
